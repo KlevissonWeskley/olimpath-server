@@ -1,0 +1,52 @@
+@url = http://localhost:3333
+@token = {{authenticate.response.body.token}}
+
+# @name authenticate
+GET {{url}}/auth/google
+Content-Type: application/json
+
+###
+
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+    "name": "Klevisson Weskley",
+    "email": "klevissonweskley13@gmail.com"
+}
+
+###
+
+GET {{url}}/users/getAll
+Content-Type: application/json
+
+###
+
+POST {{url}}/olympiads/create
+Content-Type: application/json
+
+{
+    "name": "OP",
+    "description": "Olimpíada de Português"
+}
+
+###
+
+GET {{url}}/olympiads/getAll
+Content-Type: application/json
+
+###
+
+GET {{url}}/olympiads/getById/cmbo1qyvw0001w56w2kwqsa1r
+Content-Type: application/json
+
+
+###
+
+PATCH {{url}}/olympiads/update/cmajzjaur0000w5a0bg30eari
+Content-Type: application/json
+
+{
+    "name": "OBQ",
+    "description": "Olimpíada Brasileira de Química"
+}
