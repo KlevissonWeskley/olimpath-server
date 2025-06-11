@@ -8,6 +8,7 @@ import googleAuth from './plugins/google-auth';
 import { userRoutes } from './routes/userRoutes';
 import { env } from './env';
 import { olympiadRoutes } from './routes/olympiadRoutes';
+import { healthRoutes } from './controllers/cron-job';
 
 export const app = Fastify()
 
@@ -29,3 +30,4 @@ app.register(googleAuth)
 // routes
 app.register(userRoutes)
 app.register(olympiadRoutes)
+app.register(healthRoutes)
