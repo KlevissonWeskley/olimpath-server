@@ -22,12 +22,26 @@ export async function createChat(request: FastifyRequest, reply: FastifyReply) {
     const chat = await prisma.chat.create({
       data: {
         userId,
-      },
-    });
+      }
+    })
 
     return reply.status(201).send({ chat });
   } catch (err: any) {
-    console.error(err);
-    return reply.status(500).send("Erro ao criar chat.");
+    console.error("❌ Erro ao criar chat:");
+    console.error("Mensagem:", err.message);
+    console.error("Stack trace:", err.stack);
+
+    if (err.code) console.error("Código Prisma:", err.code);
+    if (err.meta) console.error("Meta Prisma:", err.meta);
+    if (err.name) console.error("Nome do erro:", err.name);
+
+    return reply.status(500).send({
+      error: "Erro ao criar chat.",
+      message: err.message,
+      stack: err.stack,
+      code: err.code ?? null,
+      name: err.name ?? null,
+      meta: err.meta ?? null,
+    });
   }
 }

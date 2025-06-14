@@ -75,3 +75,12 @@ GET {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/olympiads/cmbo1o5g80000w56w
 ###
 
 GET {{local}}/olympiads/materials
+
+###
+
+POST {{local}}/chat/create
+Content-Type: application/json
+
+{
+    "userId": "user_2yPvMLzeqFLB8uQc69XcRiiql60"
+}
