@@ -54,23 +54,23 @@ Content-Type: application/json
 
 ###
 
-POST {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbo22u5y00efw5owyr9i0q05/view
+POST {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbqwkbdt0003w5z82u72d43o/view
 
 ###
 
-GET {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbo22s1c0003w5owfoszgi9b/view
+GET {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbqwkbdt0003w5z82u72d43o/view
 
 ###
 
-GET {{local}}/users/cmbqs36gr0000w5rce78rg8n0/recent-watched
+GET {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/recent-watched
 
 ###
 
-GET {{local}}/users/by-email/klevissonweskley13@gmail.com
+GET {{url}}/users/by-email/klevissonws.github@gmail.com
 
 ###
 
-GET {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/olympiads/cmbo1o5g80000w56w89xv7syb/watched
+GET {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/olympiads/cmbo1o5g80000w56w89xv7syb/watched
 
 ###
 
@@ -84,3 +84,7 @@ Content-Type: application/json
 {
     "userId": "user_2yPvMLzeqFLB8uQc69XcRiiql60"
 }
+
+###
+
+GET {{local}}/olympiads/cmbqwi1pl00016d3uqgvv1k97/simulated
