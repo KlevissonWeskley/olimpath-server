@@ -4,12 +4,13 @@ import { prisma } from '../../../lib/prisma'
 
 export async function registerUser(request: FastifyRequest, reply: FastifyReply) {
     const registerUserBodySchema = z.object({
+        id: z.string(),
         name: z.string(),
         email: z.string().email(),
         avatarUrl: z.string().optional()
     })
 
-    const { name, email, avatarUrl } = registerUserBodySchema.parse(request.body)
+    const { id, name, email, avatarUrl } = registerUserBodySchema.parse(request.body)
 
     try {
         const userAlreadyExists = await prisma.user.findUnique({
@@ -22,6 +23,7 @@ export async function registerUser(request: FastifyRequest, reply: FastifyReply)
 
         const user = await prisma.user.create({
             data: {
+                id,
                 name,
                 email,
                 avatarUrl

@@ -9,6 +9,9 @@ import { userRoutes } from './routes/userRoutes';
 import { env } from './env';
 import { olympiadRoutes } from './routes/olympiadRoutes';
 import { healthRoutes } from './controllers/cron-job';
+import { videosRoutes } from './routes/videosRoutes';
+import { chatRoutes } from './routes/chatRoutes';
+import { todayQuiz } from './routes/todayQuiz';
 
 export const app = Fastify()
 
@@ -31,3 +34,6 @@ app.register(googleAuth)
 app.register(userRoutes)
 app.register(olympiadRoutes)
 app.register(healthRoutes)
+app.register(videosRoutes)
+app.register(chatRoutes)
+app.register(todayQuiz)
