@@ -78,7 +78,7 @@ GET {{local}}/olympiads/materials
 
 ###
 
-POST {{local}}/chat/create
+POST {{url}}/chat/create
 Content-Type: application/json
 
 {
