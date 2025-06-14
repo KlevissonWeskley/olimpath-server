@@ -10,14 +10,13 @@ export async function getRecentWatched(request: FastifyRequest, reply: FastifyRe
   const { userId } = paramsSchema.parse(request.params);
 
   try {
-    // Busca todas as olimpíadas que têm pelo menos um vídeo assistido pelo usuário
     const olympiads = await prisma.olympiad.findMany({
       where: {
         contents: {
           some: {
             videos: {
               some: {
-                VideoView: {
+                views: {
                   some: {
                     userId,
                     watched: true,
@@ -33,7 +32,7 @@ export async function getRecentWatched(request: FastifyRequest, reply: FastifyRe
           include: {
             videos: {
               include: {
-                VideoView: {
+                views: {
                   where: {
                     userId,
                     watched: true,
@@ -50,7 +49,7 @@ export async function getRecentWatched(request: FastifyRequest, reply: FastifyRe
     const result = olympiads.map((olympiad) => {
       const allVideos = olympiad.contents.flatMap((content) => content.videos);
       const totalVideos = allVideos.length;
-      const watchedVideos = allVideos.filter((video) => video.VideoView.length > 0).length;
+      const watchedVideos = allVideos.filter((video) => video.views.length > 0).length;
 
       return {
         olympiadId: olympiad.id,

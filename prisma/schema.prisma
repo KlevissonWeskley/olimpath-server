@@ -48,7 +48,7 @@ model Video {
   url       String
   contentId String
   content   Content     @relation(fields: [contentId], references: [id], onDelete: Cascade)
-  VideoView VideoView[]
+  views     VideoView[]
 }
 
 model VideoView {
