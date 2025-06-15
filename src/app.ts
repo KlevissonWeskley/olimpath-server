@@ -15,6 +15,12 @@ import { todayQuiz } from './routes/todayQuiz';
 
 export const app = Fastify()
 
+app.get('/', (_, reply) => {
+  return reply.status(200).send({
+    message: 'Bem-vindo a API do OlimPath!'
+  })
+})
+
 app.register(fastifyCookie)
 app.register(fastifyCors, {
   origin: '*'
