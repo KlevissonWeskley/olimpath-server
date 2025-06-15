@@ -6,6 +6,7 @@ import { getOlympiadById } from "../controllers/olympiad/getOlympiadById";
 import { deleteOlympiad } from "../controllers/olympiad/deleteOlympiad";
 import { getMaterials } from "../controllers/materials/getMaterials";
 import { getSimulated } from "../controllers/olympiad/getSimulated";
+import { simulatedScore } from "../controllers/gamification/simulatedScore";
 
 export async function olympiadRoutes(app: FastifyInstance) {
     app.post('/olympiads/create', createOlympiad)
@@ -16,4 +17,5 @@ export async function olympiadRoutes(app: FastifyInstance) {
 
     app.get('/olympiads/materials', getMaterials)
     app.get('/olympiads/:id/simulated', getSimulated)
+    app.post('/users/:userId/simulated/score', simulatedScore)
 }

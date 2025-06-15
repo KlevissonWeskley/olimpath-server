@@ -14,13 +14,26 @@ datasource db {
 }
 
 model User {
-  id        String      @id
-  name      String
-  email     String      @unique
-  avatarUrl String?
-  createdAt DateTime    @default(now())
-  Chat      Chat[]
-  VideoView VideoView[]
+  id            String              @id
+  name          String
+  email         String              @unique
+  avatarUrl     String?
+  createdAt     DateTime            @default(now())
+  Chat          Chat[]
+  VideoView     VideoView[]
+  Points        Int                 @default(0)
+  DailyProgress DailyQuizProgress[]
+}
+
+model DailyQuizProgress {
+  id     String   @id @default(cuid())
+  userId String
+  date   DateTime
+  count  Int      @default(0)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date])
 }
 
 model Olympiad {

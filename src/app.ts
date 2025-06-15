@@ -12,6 +12,7 @@ import { healthRoutes } from './controllers/cron-job';
 import { videosRoutes } from './routes/videosRoutes';
 import { chatRoutes } from './routes/chatRoutes';
 import { todayQuiz } from './routes/todayQuiz';
+import { gamificationRoutes } from './routes/gamificationRoutes';
 
 export const app = Fastify()
 
@@ -43,3 +44,4 @@ app.register(healthRoutes)
 app.register(videosRoutes)
 app.register(chatRoutes)
 app.register(todayQuiz)
+app.register(gamificationRoutes)

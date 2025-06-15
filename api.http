@@ -150,3 +150,27 @@ DELETE {{url}}/chat/delete/chatId
 
 # @name getTodayQuiz
 GET {{url}}/quiz/today
+
+---
+
+# ===========================
+# 🏅 Gamification
+# ===========================
+
+###
+
+GET {{url}}/gamification/ranking
+
+###
+
+POST {{url}}/gamification/users/userId/simulated/score
+Content-Type: application/json
+
+{
+  "correctAnswers": 10,
+  "totalQuestions": 20
+}
+
+###
+
+GET {{url}}/gamification/users/userId/quiz/score

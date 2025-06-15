@@ -33,6 +33,15 @@ export async function markVideoAsWatched(request: FastifyRequest, reply: Fastify
       }
     })
 
+    await prisma.user.update({
+      where: {
+        id: userId
+      },
+      data: {
+        Points: { increment: 5 }
+      }
+    })
+
     return reply.status(201).send(view)
   } catch (err) {
     console.error(err)
