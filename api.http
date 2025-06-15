@@ -1,90 +1,152 @@
-@local = http://localhost:3333
 @url = https://olimpath-server.onrender.com
-@token = {{authenticate.response.body.token}}
 
-# @name authenticate
-GET {{url}}/auth/google
-Content-Type: application/json
+# ===========================
+# 🧑‍🎓 Usuários e Autenticação
+# ===========================
 
-###
+# Autenticação é feita pelo front end com Clerk, pegando as informações da conta google do usuário, ele é registrado no banco automaticamente
 
+# @name registerUser
 POST {{url}}/users/register
 Content-Type: application/json
 
 {
-    "name": "Klevisson Weskley",
-    "email": "klevissonweskley13@gmail.com"
+  "name": "Nome",
+  "email": "email@email.com"
 }
 
 ###
 
-GET {{local}}/users/getAll
-Content-Type: application/json
+# @name getAllUsers
+GET {{url}}/users/getAll
 
 ###
 
+# @name getUserByEmail
+GET {{url}}/users/by-email/userEmail
+
+---
+
+# ===========================
+# 🏅 Olimpíadas
+# ===========================
+
+# @name createOlympiad
 POST {{url}}/olympiads/create
 Content-Type: application/json
 
 {
-    "name": "OP",
-    "description": "Olimpíada de Português"
+  "name": "OP",
+  "description": "Olimpíada de Português"
 }
 
 ###
 
+# @name getAllOlympiads
 GET {{url}}/olympiads/getAll
-Content-Type: application/json
 
 ###
 
-GET {{url}}/olympiads/getById/cmbo1qyvw0001w56w2kwqsa1r
-Content-Type: application/json
-
+# @name getOlympiadById
+GET {{url}}/olympiads/getById/olympiadId
 
 ###
 
-PATCH {{url}}/olympiads/update/cmajzjaur0000w5a0bg30eari
+# @name updateOlympiad
+PATCH {{url}}/olympiads/update/olympiadId
 Content-Type: application/json
 
 {
-    "name": "OBQ",
-    "description": "Olimpíada Brasileira de Química"
+  "name": "OBQ",
+  "description": "Olimpíada Brasileira de Química"
 }
 
 ###
 
-POST {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbqwkbdt0003w5z82u72d43o/view
+# @name deleteOlympiad
+DELETE {{url}}/olympiads/delete/olympiadId
 
 ###
 
-GET {{local}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/videos/cmbqwkbdt0003w5z82u72d43o/view
+# @name getMaterials
+GET {{url}}/olympiads/materials
 
 ###
 
-GET {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/recent-watched
+# @name getSimulated
+GET {{url}}/olympiads/olympiadId/simulated
+
+---
+
+# ===========================
+# 🎥 Vídeos Assistidos
+# ===========================
+
+# @name markVideoAsWatched
+POST {{url}}/users/userId/videos/videoId/view
 
 ###
 
-GET {{url}}/users/by-email/klevissonws.github@gmail.com
+# @name getWatchedStatus
+GET {{url}}/users/userId/videos/videoId/view
 
 ###
 
-GET {{url}}/users/user_2yPvMLzeqFLB8uQc69XcRiiql60/olympiads/cmbo1o5g80000w56w89xv7syb/watched
+# @name getRecentWatched
+GET {{url}}/users/userId/recent-watched
 
 ###
 
-GET {{local}}/olympiads/materials
+# @name getWatchedFromOlympiad
+GET {{url}}/users/userId/olympiads/olympiadId/watched
 
-###
+---
 
+# ===========================
+# 🤖 Chat com IA
+# ===========================
+
+# @name createChat
 POST {{url}}/chat/create
 Content-Type: application/json
 
 {
-    "userId": "user_2yPvMLzeqFLB8uQc69XcRiiql60"
+  "userId": "user_2yPvMLzeqFLB8uQc69XcRiiql60"
 }
 
 ###
 
-GET {{local}}/olympiads/cmbqwi1pl00016d3uqgvv1k97/simulated
+# @name getChatsByUser
+GET {{url}}/chats/userId
+
+###
+
+# @name getChatById
+GET {{url}}/chat/chatId
+
+###
+
+# @name addMessageToChat
+POST {{url}}/chat/chatId/message
+Content-Type: application/json
+
+{
+  "sender": "USER or AI",
+  "content": "Qual é a fórmula da água?"
+}
+
+###
+
+# @name deleteChat
+DELETE {{url}}/chat/delete/chatId
+
+---
+
+# ===========================
+# 📅 Quiz Diário
+# ===========================
+
+###
+
+# @name getTodayQuiz
+GET {{url}}/quiz/today
