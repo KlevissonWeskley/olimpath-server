@@ -3,7 +3,7 @@
 ## Deploy da API
 https://olimpath-server.onrender.com
 
-Este é o **backend** do projeto **OlimPath**, feito com **Node.js**, **Fastify** e **TypeScript**. Ele fornece a API REST responsável cadastro de usuários, vídeos, biblioteca de materiais, simulados, progresso dos alunos e mais.
+Este é o **backend** do projeto **OlimPath**, feito com **Node.js**, **Fastify** e **TypeScript**. Ele fornece a API REST responsável por cadastro de usuários, vídeos, biblioteca de materiais, simulados, progresso dos alunos e mais.
 
 ---
 
