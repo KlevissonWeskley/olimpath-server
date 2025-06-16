@@ -1,8 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { format } from "date-fns";
+import { env } from "../../../env";
 
-const genAI = new GoogleGenerativeAI('AIzaSyAuyrcTcl6HE8CIxaj3jskqEZb5J4TELhg');
+const genAI = new GoogleGenerativeAI(env.API_KEY_GEMINI);
 
 const olympiads = [
   "OBMEP",
