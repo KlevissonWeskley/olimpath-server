@@ -19,7 +19,7 @@ const olympiads = [
 ];
 
 async function generateQuiz(olympiadName: string) {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `
         Gere 5 questões no estilo da olimpíada ${olympiadName}, voltadas para o Ensino Médio. Para cada questão, gere:
