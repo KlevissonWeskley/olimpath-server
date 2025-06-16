@@ -149,7 +149,7 @@ DELETE {{url}}/chat/delete/chatId
 ###
 
 # @name getTodayQuiz
-GET {{url}}/quiz/today
+GET http://localhost:3333/quiz/today
 
 ---
 

@@ -41,9 +41,10 @@ async function generateQuiz(olympiadName: string) {
 
     const result = await model.generateContent(prompt);
     const response = result.response;
-    const text = response.text();
+    const text = response.text().trim();
+    const cleanedText = text.replace(/```json|```/g, '').trim();
 
-    return JSON.parse(text);
+    return JSON.parse(cleanedText);
 }
 
 export async function getQuiz(_: FastifyRequest, reply: FastifyReply) {
