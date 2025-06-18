@@ -66,4 +66,6 @@ npx prisma generate
 npm run dev
 
 # A API estará disponível em https://localhost:3333 
+
+# Baixe a extensão REST Client no VsCode que no arquivo api.http tem exemplos das rotas da aplicação
 ```
