@@ -60,8 +60,6 @@ DATABASE_URL=postgresql://olimpath_db_user:QoixWAkgwemesamd3A0MHDAd2cDVvUNP@dpg-
 #  4. Configuração do Prisma ORM
 npx prisma generate
 
-npx prisma migrate dev
-
 # 5. Rodando o projeto
 npm run dev
 
