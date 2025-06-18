@@ -2,10 +2,7 @@ import 'dotenv/config'
 import { z } from 'zod'
 
 const envSchema = z.object({
-    JWT_SECRET: z.string(),
     PORT: z.coerce.number().default(3333),
-    GOOGLE_CLIENT_ID: z.string(),
-    GOOGLE_CLIENT_SECRET: z.string(),
     API_KEY_GEMINI: z.string()
 })
 
