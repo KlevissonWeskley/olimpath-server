@@ -53,9 +53,11 @@ npm install
 
 # Url do banco local
 DATABASE_URL=postgresql://admin:root@localhost:5432/olimpathdb?schema=public
-
 # Url do banco em produção (se não quiser rodar o banco com docker)
 DATABASE_URL=postgresql://olimpath_db_user:QoixWAkgwemesamd3A0MHDAd2cDVvUNP@dpg-d147piogjchc73ffbbu0-a.oregon-postgres.render.com/olimpath_db
+
+# API Key do GEMINI (necessária pra IA)
+API_KEY_GEMINI=AIzaSyAuyrcTcl6HE8CIxaj3jskqEZb5J4TELhg
 
 #  4. Configuração do Prisma ORM
 npx prisma generate
