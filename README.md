@@ -51,9 +51,15 @@ npm install
 
 # 3. Crie o arquivo .env
 
-# Url do banco local
+# Variaveis que vai precisar para testar
+
+# Url do banco local - Rodando com docker
 DATABASE_URL=postgresql://admin:root@localhost:5432/olimpathdb?schema=public
-# Url do banco em produção (se não quiser rodar o banco com docker)
+
+# ou
+
+# Para teste, recomendamos utilizar essa url, pois já está com o banco populado
+# Url do banco em produção
 DATABASE_URL=postgresql://olimpath_db_user:QoixWAkgwemesamd3A0MHDAd2cDVvUNP@dpg-d147piogjchc73ffbbu0-a.oregon-postgres.render.com/olimpath_db
 
 # API Key do GEMINI (necessária pra IA)
