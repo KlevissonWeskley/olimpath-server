@@ -46,14 +46,22 @@ Isso vai iniciar um container PostgreSQL com as configurações do .env.
 git clone https://github.com/KlevissonWeskley/olimpath-server.git
 cd olimpath-server
 
+# Atenção: o arquivo .env que deixamos são de chaves de TESTE, que fizemos EXCLUSIVAMENTE para o uso no SEDUCKATHON, elas não comprometem de forma alguma a SEGURANÇA da aplicação.
+
 # 2. Instale as dependências
 npm install
 
 # 3. Crie o arquivo .env
 
-# Url do banco local
+# Variaveis que vai precisar para testar
+
+# Url do banco local - Rodando com docker
 DATABASE_URL=postgresql://admin:root@localhost:5432/olimpathdb?schema=public
-# Url do banco em produção (se não quiser rodar o banco com docker)
+
+# ou
+
+# Para teste, recomendamos utilizar essa url, pois já está com o banco populado
+# Url do banco em produção
 DATABASE_URL=postgresql://olimpath_db_user:QoixWAkgwemesamd3A0MHDAd2cDVvUNP@dpg-d147piogjchc73ffbbu0-a.oregon-postgres.render.com/olimpath_db
 
 # API Key do GEMINI (necessária pra IA)
