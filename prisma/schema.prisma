@@ -17,6 +17,7 @@ model User {
   id            String              @id
   name          String
   email         String              @unique
+  password      String?             @map("password_hash")
   avatarUrl     String?
   createdAt     DateTime            @default(now())
   Chat          Chat[]

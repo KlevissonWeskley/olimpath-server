@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 
+import fastifyJwt from '@fastify/jwt'
 import fastifyCors from '@fastify/cors';
 import fastifyCookie from '@fastify/cookie'
 
@@ -10,6 +11,7 @@ import { videosRoutes } from './routes/videosRoutes';
 import { chatRoutes } from './routes/chatRoutes';
 import { todayQuiz } from './routes/todayQuiz';
 import { gamificationRoutes } from './routes/gamificationRoutes';
+import { env } from './env';
 
 export const app = Fastify()
 
@@ -22,6 +24,13 @@ app.get('/', (_, reply) => {
 app.register(fastifyCookie)
 app.register(fastifyCors, {
   origin: '*'
+})
+
+app.register(fastifyJwt, {
+    secret: env.JWT_SECRET,
+    sign: {
+        expiresIn: '7d',
+    }
 })
 
 // routes

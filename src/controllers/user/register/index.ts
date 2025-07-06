@@ -1,16 +1,19 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
 import { prisma } from '../../../lib/prisma'
+import { randomUUID } from 'node:crypto'
+import { hash } from 'bcryptjs'
 
 export async function registerUser(request: FastifyRequest, reply: FastifyReply) {
     const registerUserBodySchema = z.object({
-        id: z.string(),
+        id: z.string().optional(),   
         name: z.string(),
         email: z.string().email(),
+        password: z.string().min(6).optional(),
         avatarUrl: z.string().optional()
     })
 
-    const { id, name, email, avatarUrl } = registerUserBodySchema.parse(request.body)
+    const { id, name, email, password, avatarUrl } = registerUserBodySchema.parse(request.body)
 
     try {
         const userAlreadyExists = await prisma.user.findUnique({
@@ -21,11 +24,17 @@ export async function registerUser(request: FastifyRequest, reply: FastifyReply)
 
         if (userAlreadyExists) return reply.status(409).send({ message: 'Usuário já existe.' })
 
+        let passwordHashed: string | null = null
+        if (password) {
+            passwordHashed = await hash(password, 10) 
+        }
+
         const user = await prisma.user.create({
             data: {
-                id,
+                id: id ?? randomUUID(),
                 name,
                 email,
+                password: passwordHashed,
                 avatarUrl
             }
         })

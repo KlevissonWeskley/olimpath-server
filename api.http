@@ -7,12 +7,12 @@
 # Autenticação é feita pelo front end com Clerk, pegando as informações da conta google do usuário, ele é registrado no banco automaticamente
 
 # @name registerUser
-POST {{url}}/users/register
+POST http://localhost:3333/users/authenticate
 Content-Type: application/json
 
 {
-  "name": "Nome",
-  "email": "email@email.com"
+  "email": "email@email.com",
+  "password": "kless123"
 }
 
 ###
