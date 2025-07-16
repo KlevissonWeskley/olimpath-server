@@ -39,8 +39,13 @@ export async function registerUser(request: FastifyRequest, reply: FastifyReply)
             }
         })
 
+        const token = await reply.jwtSign({
+            sign: { sub: user.id }
+        })
+
         return reply.status(201).send({
-            id: user.id
+            user,
+            token,
         })
     } catch (err) {
         return reply.status(500).send('Erro ao criar usuário')
