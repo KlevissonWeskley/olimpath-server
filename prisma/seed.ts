@@ -10,7 +10,14 @@ async function seedContents() {
 
     if (!olympiad) {
       console.log(`Olimpíada ${olympiadJson.name} não encontrada no banco.`);
-      continue; // pula se não achar a olimpíada
+      const newOlympiad = await prisma.olympiad.create({
+        data: {
+          name: olympiadJson.name
+        }
+      })
+
+      console.log(`Olimpíada ${newOlympiad.name} cadastrada.`);
+      return newOlympiad;
     }
 
     for (const content of olympiadJson.content) {

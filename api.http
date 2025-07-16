@@ -7,7 +7,7 @@
 # Autenticação é feita pelo front end com Clerk, pegando as informações da conta google do usuário, ele é registrado no banco automaticamente
 
 # @name registerUser
-POST http://localhost:3333/users/authenticate
+POST {{url}}/users/authenticate
 Content-Type: application/json
 
 {
@@ -48,7 +48,7 @@ GET {{url}}/olympiads/getAll
 ###
 
 # @name getOlympiadById
-GET {{url}}/olympiads/getById/olympiadId
+GET {{url}}/olympiads/getById/cmbqwhcnu00006d3uz6yba2p9
 
 ###
 
@@ -81,9 +81,10 @@ GET {{url}}/olympiads/olympiadId/simulated
 # ===========================
 # 🎥 Vídeos Assistidos
 # ===========================
+###
 
 # @name markVideoAsWatched
-POST {{url}}/users/userId/videos/videoId/view
+POST {{url}}/users/b0c9cbd9-a134-4f00-894f-9bedd8e1772a/videos/cmcgph2pi0003w5mwxm0hrica/view
 
 ###
 
@@ -98,13 +99,14 @@ GET {{url}}/users/userId/recent-watched
 ###
 
 # @name getWatchedFromOlympiad
-GET {{url}}/users/userId/olympiads/olympiadId/watched
+GET {{url}}/users/user_2yVo2pWDsTHnQItSCj3KjiScIdd/olympiads/cmbqwiasm00026d3uioa90dwr/watched
 
 ---
 
 # ===========================
 # 🤖 Chat com IA
 # ===========================
+###
 
 # @name createChat
 POST {{url}}/chat/create
@@ -117,7 +119,7 @@ Content-Type: application/json
 ###
 
 # @name getChatsByUser
-GET {{url}}/chats/userId
+GET {{url}}/chats/b0c9cbd9-a134-4f00-894f-9bedd8e1772a
 
 ###
 
@@ -138,9 +140,7 @@ Content-Type: application/json
 ###
 
 # @name deleteChat
-DELETE {{url}}/chat/delete/chatId
-
----
+DELETE {{url}}/chat/delete/cmcsdbjos0000w5i47dq5qr4y
 
 # ===========================
 # 📅 Quiz Diário

@@ -23,7 +23,9 @@ app.get('/', (_, reply) => {
 
 app.register(fastifyCookie)
 app.register(fastifyCors, {
-  origin: '*'
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 })
 
 app.register(fastifyJwt, {
