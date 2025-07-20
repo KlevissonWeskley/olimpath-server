@@ -51,26 +51,25 @@ cd olimpath-server
 # 2. Instale as dependências
 npm install
 
-# 3. Crie o arquivo .env
+# 3. Suba o banco
+docker compose up -d
+
+# 4. Crie o arquivo .env
 
 # Variaveis que vai precisar para testar
 
 # Url do banco local - Rodando com docker
 DATABASE_URL=postgresql://admin:root@localhost:5432/olimpathdb?schema=public
 
-# ou
-
-# Para teste, recomendamos utilizar essa url, pois já está com o banco populado
-# Url do banco em produção
-DATABASE_URL=postgresql://olimpath_db_user:QoixWAkgwemesamd3A0MHDAd2cDVvUNP@dpg-d147piogjchc73ffbbu0-a.oregon-postgres.render.com/olimpath_db
-
 # API Key do GEMINI (necessária pra IA)
-API_KEY_GEMINI=AIzaSyAuyrcTcl6HE8CIxaj3jskqEZb5J4TELhg
+API_KEY_GEMINI=
 
-#  4. Configuração do Prisma ORM
+# 5. Configuração do Prisma ORM
 npx prisma generate
 
-# 5. Rodando o projeto
+npm run seed
+
+# 6. Rodando o projeto
 npm run dev
 
 # A API estará disponível em https://localhost:3333 
